@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+main {
+    margin-bottom: 48px;
+}
+.container {
+    /* min-width: 940px; */
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.container .row {
+    height: 27px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+
+}
+
+.container .menu,
+.container-admin .menu {
+    display: flex;
+}
+
+.container .menu a {
+    font-family: 'Roboto', sans-serif;
+    color: #111111;
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration: none;
+}
+
+.container .menu a.active {
+    color: #111111;
+    font-weight: bold;
+}
+
+.container .menu a:hover {
+    color: #111111;
+    font-weight: bold;
+    transition: 300ms;
+}
+
+.container a {
+    padding-left: 30px;
+}
+
+.container a.my-account {
+    display: flex;
+    align-items: center;
+}
+
+.container a.my-account i {
+    font-size: 18px;
+    color: #1D428A;
+    margin-right: 4px;
+}
+
+.container .row {
+    height: 100%;
+}
+
+.container .logo {
+    height: 100px;
+    /* width: 90.6px;
+    height: 26.9px; */
+    padding-left: 0px;
+}
+
+.container .logo img {
+    height: 100%;
+}
+
+.search {
+    margin-left: 156px;
+    position: absolute;
+    right: 0;
+}
+
+.search input {
+    width: 246px;
+    height: 35px;
+    border: solid 1px #DDDDDD;
+    border-radius: 4px;
+    padding-left: 8px;
+    outline: none;
+    color: #999999;
+    font-size: 14px
+}
+
+.search button {
+    width: 91px;
+    height: 37px;
+    border-radius: 4px;
+    background-color: #1D428A;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 9px 20px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #eeeeee;
+    margin-top: auto;
+    width: 100%;
+}
+
+footer p {
+    font-size: 14px;
+    line-height: 16px;
+    color: #999999;
+    text-align: center;
+    padding: 23px;
+}
+
+.titulo-index {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.descricao-index {
+    text-align: center;
+    text-justify: auto;
+    line-height: 32px;
+}
+.container-index {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+
+}
+.lebron {
+    max-width: 300px;
+    align-self: center;
+    margin-top: 30px;
+}
+

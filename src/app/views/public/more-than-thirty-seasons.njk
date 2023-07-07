@@ -1,0 +1,30 @@
+{% extends "public/layout.njk" %}
+
+{% block head %}
+    <title>NBA - Select Player</title>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="nome-jogador">Players with more than 30 seasons</div>
+        <div class="descricao">Players with more than 30 seasons</div>
+        <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+            <tr>
+                <th>Player</th>
+                <th>Seasons Count</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for player in players %}   
+            <tr>
+                <td>{{player.PlayerName}}</td>
+                <td>{{player.Seasons_Count}}</td>
+            </tr>
+            {% endfor %}
+            <tbody>
+        </table>
+    </main>
+{% endblock %}
+

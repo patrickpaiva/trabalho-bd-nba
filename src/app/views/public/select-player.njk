@@ -1,0 +1,27 @@
+{% extends "public/layout.njk" %}
+
+{% block head %}
+    <title>NBA - Select Player</title>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="nome-jogador">Select Player</div>
+        <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for player in players %}   
+            <tr>
+                <td><a href="/playerstats/{{player.PlayerID}}">{{player.PlayerName}}</a></td>
+            </tr>
+            {% endfor %}
+            <tbody>
+        </table>
+    </main>
+{% endblock %}
+

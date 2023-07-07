@@ -1,0 +1,30 @@
+{% extends "public/layout.njk" %}
+
+{% block head %}
+    <title>NBA - Select Player</title>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="nome-jogador">Best Teams</div>
+        <div class="descricao">All teams with more than 100 appearences, ordered by the best!</div>
+        <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+            <tr>
+                <th>Team</th>
+                <th>Seasons Count</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for team in teams %}   
+            <tr>
+                <td>{{team.Team_Acronym}}</td>
+                <td>{{team.Seasons_Count}}</td>
+            </tr>
+            {% endfor %}
+            <tbody>
+        </table>
+    </main>
+{% endblock %}
+

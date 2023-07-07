@@ -1,0 +1,39 @@
+{% extends "public/layout.njk" %}
+
+{% block head %}
+    <title>NBA - Player Stats</title>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="nome-jogador">{{playerStats[0].PlayerName}}</div>
+        <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+            <tr>
+                <th>Season</th>
+                <th>Ranking</th>
+                <th>FG_Made</th>
+                <th>Games_Played</th>
+                <th>Minutes_Played</th>
+                <th>FT_Made</th>
+                <th>FT_Attempt</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for playerStat in playerStats %}   
+            <tr>
+                <td>{{playerStat.Season_Time}}</td>
+                <td>{{playerStat.Ranking}}</td>
+                <td>{{playerStat.FG_Made}}</td>
+                <td>{{playerStat.Games_Played}}</td>
+                <td>{{playerStat.Minutes_Played}}</td>
+                <td>{{playerStat.FT_Made}}</td>
+                <td>{{playerStat.FD_Attempted}}</td>
+            </tr>
+            {% endfor %}
+            <tbody>
+        </table>
+    </main>
+{% endblock %}
+

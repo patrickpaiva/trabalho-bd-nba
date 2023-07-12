@@ -62,9 +62,10 @@ module.exports = {
     async moreThanThirtySeasons() {
         return new Promise((resolve, reject) => {
             const query = `
-                SELECT PlayerName, temporadasRegularesEPlayOffs as Seasons_Count FROM (
+                SELECT PlayerName, temporadasRegularesEPlayOffs as Seasons_Count, fk_Player_PlayerID as id FROM (
                     SELECT 
                         PlayerName,
+                        fk_Player_PlayerID,
                         COUNT(fk_Player_PlayerID) AS temporadasRegularesEPlayOffs
                     FROM
                         jogou_season_team_player
@@ -87,7 +88,8 @@ module.exports = {
         return new Promise((resolve, reject) => {
             const query = `
                 SELECT 
-                p.PlayerName, jstp.fk_Season_Start_Year as Season , Points_Scored as Pontos, Games_Played as Jogos
+                p.PlayerName, jstp.fk_Season_Start_Year as Season , Points_Scored as Pontos, Games_Played as Jogos,
+                p.playerID as id
                 FROM
                     jogou_season_team_player AS jstp
                         INNER JOIN

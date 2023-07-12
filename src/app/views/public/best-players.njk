@@ -21,7 +21,7 @@
             <tbody>
             {% for player in players %}   
             <tr>
-                <td>{{player.PlayerName}}</td>
+                <td><a href="playerstats/{{player.id}}">{{player.PlayerName}}</a></td>
                 <td>{{player.Season}}</td>
                 <td>{{player.Pontos}}</td>
                 <td>{{player.Jogos}}</td>

@@ -13,6 +13,10 @@
     margin-bottom: 30px;
 }
 
+canvas {
+    margin: 20px;
+}
+
 /* Table Styles */
 
 .table-wrapper{

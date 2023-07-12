@@ -2,6 +2,7 @@
 
 {% block head %}
     <title>NBA - Player Stats</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -12,6 +13,7 @@
             <thead>
             <tr>
                 <th>Season</th>
+                <th>Season Type</th>
                 <th>Ranking</th>
                 <th>FG_Made</th>
                 <th>Games_Played</th>
@@ -24,6 +26,7 @@
             {% for playerStat in playerStats %}   
             <tr>
                 <td>{{playerStat.Season_Time}}</td>
+                <td>{{playerStat.Season_Type}}</td>
                 <td>{{playerStat.Ranking}}</td>
                 <td>{{playerStat.FG_Made}}</td>
                 <td>{{playerStat.Games_Played}}</td>
@@ -34,6 +37,91 @@
             {% endfor %}
             <tbody>
         </table>
+        <canvas id="RS_FT_FG"></canvas>
+        <canvas id="PO_FT_FG"></canvas>
+        <script>
+           const seasons_regular = []
+           const fg_made_regular = []
+           const ft_made_regular = []
+
+           const seasons_po = []
+           const fg_made_po = []
+           const ft_made_po = []
+           {% for playerStat in playerStats %}
+
+            {% if playerStat.Season_Type == 'Regular Season' %}
+                seasons_regular.push('{{playerStat.Season_Time}}')
+                ft_made_regular.push('{{playerStat.FT_Made}}')
+                fg_made_regular.push('{{playerStat.FG_Made}}')
+            {% else %}
+                seasons_po.push('{{playerStat.Season_Time}}')
+                ft_made_po.push('{{playerStat.FT_Made}}')
+                fg_made_po.push('{{playerStat.FG_Made}}')
+            {% endif %}
+
+           {% endfor %}
+
+            new Chart(
+                document.getElementById('RS_FT_FG'),
+                {
+                    type: 'line',
+                    data: {
+                        labels: seasons_regular,
+                        datasets: [
+                            {
+                                label: 'FT Made',
+                                data: ft_made_regular
+                            },
+                            {
+                                label: 'FG Made',
+                                data: fg_made_regular
+                            }
+                        ]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Regular Season - FT and FG Made'
+                            }
+                        }
+                    }
+                }
+            );
+            new Chart(
+                document.getElementById('PO_FT_FG'),
+                {
+                    type: 'line',
+                    data: {
+                        labels: seasons_po,
+                        datasets: [
+                            {
+                                label: 'FT Made',
+                                data: ft_made_po
+                            },
+                            {
+                                label: 'FG Made',
+                                data: fg_made_po
+                            }
+                        ]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Playoffs - FT and FG Made'
+                            }
+                        }
+                    }
+                }
+            );
+        </script>
     </main>
 {% endblock %}
 
